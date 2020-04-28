@@ -23,13 +23,23 @@
           <a href="createBlog.html"><div class="ui huge primary button">Crea Un Post <i class="right arrow icon"></i></div></a>
           <h3 style="padding-bottom: 10px;" class="">Baja para leer las publicaciones de otros usuarios <i class="down arrow icon"></i></h3>
     </div>
+    {% for post in data %}
+    <div>
+        <h2>{{ post.title }}</h2>
+        <img src="{{ post.picture.url }}">
+    </div>
+{% endfor %}
 {% endblock headercontent%}
 {% block body %}
               <!--Body Blog-->
     <div class="ui text container content-form-custom">
         <h3>NEW POST</h3>
         <div class="ui tall stacked raised segment form-custom form">
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             {{ form.as_p }}
+            <button class="ui submit primary button">Submit</button>
+                </form>
             <button class="ui submit primary button">Submit</button>
         </div>
     </div>
