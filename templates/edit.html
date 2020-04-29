@@ -13,8 +13,11 @@
     <div class="ui text container content-form-custom">
         <h3>EDIT POST</h3>
         <div class="ui tall stacked raised segment form-custom form">
+           <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             {{ form.as_p }}
             <button class="ui submit primary button">Submit</button>
+                </form>
         </div>
     </div>
 {% endblock body %}
