@@ -1,18 +1,8 @@
 {% extends "base.html" %}
 {% block moreStyle%}
 <style>
-          .ui.inverted.segment, .ui.primary.inverted.segment {
-            background-color: #ffffff;
-            color: rgba(0, 0, 0, 0.9);
-            background-image: url(https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-            background-size: cover;
-            background-attachment: fixed;
-        }
-        .masthead.segment {
-            min-height: 700px;
-            padding: 1em 0em;
-        }
-    </style>
+
+</style>
 {% endblock moreStyle %}
 {% block headercontent%}
     <div class="ui text container text-header">
@@ -20,27 +10,23 @@
             Blog Django
           </h1>
           <h2 class="">¿Quieres crear un post que sea leídos por todos?</h2>
-          <a href="createBlog.html"><div class="ui huge primary button">Crea Un Post <i class="right arrow icon"></i></div></a>
+          <a href="{% url 'create_post' %}"><div class="ui huge primary button">Crea Un Post <i class="right arrow icon"></i></div></a>
           <h3 style="padding-bottom: 10px;" class="">Baja para leer las publicaciones de otros usuarios <i class="down arrow icon"></i></h3>
     </div>
     {% for post in data %}
     <div>
-        <h2>{{ post.title }}</h2>
-        <img src="{{ post.picture.url }}">
+        <div>
+            <h2>{{ post.title }}</h2>
+            <a href="{% url 'post_detail' post.id %}">
+                <img width="250px" height="300px" src="{{ post.picture.url }}">
+            </a>
+        </div>
+        <div>
+            <button><a href="{% url 'post_delete' post.id %}">Eliminar</a></button>
+            <button><a href="{% url 'post_edit' post.id %}">Editar</a></button>
+        </div>
     </div>
 {% endfor %}
 {% endblock headercontent%}
 {% block body %}
-              <!--Body Blog-->
-    <div class="ui text container content-form-custom">
-        <h3>NEW POST</h3>
-        <div class="ui tall stacked raised segment form-custom form">
-            <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="ui submit primary button">Submit</button>
-                </form>
-            <button class="ui submit primary button">Submit</button>
-        </div>
-    </div>
 {% endblock body %}

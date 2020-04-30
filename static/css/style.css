@@ -1,0 +1,11 @@
+.ui.inverted.segment, .ui.primary.inverted.segment {
+            background-color: #ffffff;
+            color: rgba(0, 0, 0, 0.9);
+            background-image: url(https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .masthead.segment {
+            min-height: 700px;
+            padding: 1em 0em;
+        }
