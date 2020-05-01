@@ -1,11 +1,11 @@
-{% extends "base.html" %}
-{% block moreStyle%}
-<style>
 
-</style>
+{% extends "base.html" %}
+{% load static %}
+{% block moreStyle%}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
 {% endblock moreStyle %}
 {% block headercontent%}
-    <div class="ui text container text-header">
+    <div class="ui text container text-header header-django">
           <h1 class="ui inverted header">
             Blog Django
           </h1>
@@ -13,20 +13,25 @@
           <a href="{% url 'create_post' %}"><div class="ui huge primary button">Crea Un Post <i class="right arrow icon"></i></div></a>
           <h3 style="padding-bottom: 10px;" class="">Baja para leer las publicaciones de otros usuarios <i class="down arrow icon"></i></h3>
     </div>
-    {% for post in data %}
-    <div>
-        <div>
-            <h2>{{ post.title }}</h2>
-            <a href="{% url 'post_detail' post.id %}">
-                <img width="250px" height="300px" src="{{ post.picture.url }}">
-            </a>
+    <div class="ui three column doubling stackable grid content-django">
+        {% for post in data %}
+        <div class="column">
+            <div class="card-django">
+                <div class="card-django-body">
+                    <h2 class="card-title-django">{{ post.title }}</h2>
+                    <a href="{% url 'post_detail' post.id %}">
+                        <img class="card-django-img" src="{{ post.picture.url }}">
+                    </a>
+                    <h4>Author: {{ post.author }}</h4>
+                </div>
+                <div class="card-django-footer">
+                    <a class="ui negative button" href="{% url 'post_delete' post.id %}">Eliminar</a>
+                    <a class="ui primary button" href="{% url 'post_edit' post.id %}">Editar</a>
+                </div>
+            </div>
         </div>
-        <div>
-            <button><a href="{% url 'post_delete' post.id %}">Eliminar</a></button>
-            <button><a href="{% url 'post_edit' post.id %}">Editar</a></button>
-        </div>
+        {% endfor %}
     </div>
-{% endfor %}
 {% endblock headercontent%}
 {% block body %}
 {% endblock body %}

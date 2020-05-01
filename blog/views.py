@@ -41,7 +41,7 @@ def post_edit(request, pk):
 
 def post_detail(request, pk):
     post = Post.objects.get(id=pk)
-    return render(request=request, template_name="", context={'post': post})
+    return render(request=request, template_name="detail.html", context={'post': post})
 
 
 def post_delete(request, pk):

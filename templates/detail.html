@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block moreStyle%}
+<style>
+      @media only screen and (max-width: 700px) {
+        .masthead.segment {
+          min-height: 50px;
+        }
+      }
+    </style>
+{% endblock moreStyle %}
+{% block body %}
+              <!--Body Blog-->
+    <div class="ui text content-django">
+        <h3>POST DETAIL</h3>
+        <div class="ui tall stacked raised segment detail-django">
+                <h2 class="card-title-django">Title: {{ post.title}}</h2>
+               <img class="detail-django-img" src="{{ post.picture.url}}"/>
+               <p>{{ post.content}}</p>
+               <h4>Author: {{ post.author}}</h4>
+        </div>
+    </div>
+{% endblock body %}
