@@ -8,6 +8,10 @@
       }
     </style>
 {% endblock moreStyle %}
+{% block linksMenu %}
+<a class="item" href="{% url 'home' %}">Home</a>
+<a class="active item" href="{% url 'create_post' %}">Crear Post</a>
+{% endblock %}
 {% block body %}
               <!--Body Blog-->
     <div class="ui text container content-form-custom">
@@ -16,7 +20,7 @@
             <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button class="ui submit primary button">Submit</button>
+            <button class="ui submit primary button">Save</button>
                 </form>
         </div>
     </div>
