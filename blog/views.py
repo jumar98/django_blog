@@ -12,8 +12,7 @@ def create_post(request):
 
     if request.method == "POST":
         Post.objects.create(title=request.POST.get("title"), author=request.POST.get("author"),
-                            content=request.POST.get("content"), created_on=datetime.now(),
-                            picture=request.FILES.get("picture"))
+                            content=request.POST.get("content"), picture=request.FILES.get("picture"))
         return redirect('home')
 
 

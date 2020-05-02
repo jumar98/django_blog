@@ -22,7 +22,7 @@
                     <a href="{% url 'post_detail' post.id %}">
                         <img class="card-django-img" src="{{ post.picture.url }}">
                     </a>
-                    <h4>Author: {{ post.author }}</h4>
+                    <h4 class="margin-bottom">Creado el {{ post.created_on }} por {{ post.author }}</h4>
                 </div>
                 <div class="card-django-footer">
                     <a class="ui negative button" href="{% url 'post_delete' post.id %}">Eliminar</a>
