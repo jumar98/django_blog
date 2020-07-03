@@ -14,8 +14,9 @@
         <div class="ui tall stacked raised segment detail-django">
                 <h2 class="card-title-django">Title: {{ post.title}}</h2>
                <img class="detail-django-img" src="{{ post.picture.url}}"/>
-               <p>{{ post.content}}</p>
-               <h4>Author: {{ post.author}}</h4>
+               <p>{{ post.content }}</p>
+               <h4>Autor: {{ post.author}}</h4>
+               <h4>Creado: {{ post.created_on }}</h4>
         </div>
     </div>
 {% endblock body %}

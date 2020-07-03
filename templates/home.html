@@ -20,7 +20,9 @@
                 <div class="card-django-body">
                     <h2 class="card-title-django">{{ post.title }}</h2>
                     <a href="{% url 'post_detail' post.id %}">
-                        <img class="card-django-img" src="{{ post.picture.url }}">
+                        {% if post.picture %}
+                            <img class="card-django-img" src="{{ post.picture.url }}">
+                        {% endif %}
                     </a>
                     <h4 class="margin-bottom">Creado el {{ post.created_on }} por {{ post.author }}</h4>
                 </div>

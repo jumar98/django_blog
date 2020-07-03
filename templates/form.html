@@ -6,22 +6,18 @@
           min-height: 50px;
         }
       }
-    </style>
+</style>
 {% endblock moreStyle %}
-{% block linksMenu %}
-<a class="item" href="{% url 'home' %}">Home</a>
-<a class="active item" href="{% url 'create_post' %}">Crear Post</a>
-{% endblock %}
 {% block body %}
               <!--Body Blog-->
     <div class="ui text container content-form-custom">
-        <h3>NEW POST</h3>
+        <h3>{{ title }}</h3>
         <div class="ui tall stacked raised segment form-custom form">
             <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button class="ui submit primary button">Save</button>
-                </form>
+            </form>
         </div>
     </div>
 {% endblock body %}
